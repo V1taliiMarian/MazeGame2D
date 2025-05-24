@@ -1,0 +1,76 @@
+﻿<Page x:Class="LabyrinthGame.TimeAttackPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      KeyboardNavigation.TabNavigation="None" 
+      Title="RandomLevelPage"
+      Background="#2A3439">
+
+    <Grid x:Name="ContentGrid">
+        <Canvas>
+            <Button x:Name="PauseButton" Style="{StaticResource RoundPauseButtonStyle}"
+                    Canvas.Top="15" Canvas.Left="15"
+                    Click="PauseButton_Click"/>
+        </Canvas>
+        
+        <StackPanel Style="{StaticResource VerticalModeTextStyle}">
+            <TextBlock Text="T" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="I" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="M" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="E" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="" Style="{StaticResource ModeLetterTextStyle}" Height="25"/>
+            <TextBlock Text="A" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="T" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="T" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="A" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="C" Style="{StaticResource ModeLetterTextStyle}"/>
+            <TextBlock Text="K" Style="{StaticResource ModeLetterTextStyle}"/>
+        </StackPanel>
+        
+        <TextBlock Text="СЛІДКУЙ ЗА ЧАСОМ" 
+           Style="{StaticResource HintTextStyle}"
+           Margin="0,40,0,0"
+           VerticalAlignment="Top"/>
+
+        <TextBlock Text="КЕРУЙ ЗА ДОПОМОГОЮ КЛАВІАТУРИ" 
+           Style="{StaticResource HintTextStyle}"
+           Margin="0,0,0,40"
+           VerticalAlignment="Bottom"/>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,35,0">
+            <!-- Таймер -->
+            <TextBlock x:Name="TimerText" FontSize="32" VerticalAlignment="Center" 
+                       TextAlignment="Center" Foreground="White" FontWeight="Bold"
+                       Text="00:00" Margin="0,0,0,20"/>
+
+            <!-- Зірки -->
+            <StackPanel x:Name="StarsPanel" Orientation="Vertical" HorizontalAlignment="Center">
+                <Polygon x:Name="Star1" Style="{StaticResource StarStyle}"/>
+                <Polygon x:Name="Star2" Style="{StaticResource StarStyle}"/>
+                <Polygon x:Name="Star3" Style="{StaticResource StarStyle}"/>
+            </StackPanel>
+
+
+
+            <!-- Монети -->
+            <Image Source="/coin.png" Width="45" Height="45" VerticalAlignment="Center" Margin="0,20,0,0"/>
+            <TextBlock x:Name="CoinBalanceText" FontSize="32" VerticalAlignment="Center" 
+                       TextAlignment="Center" Foreground="White" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Напівпрозорий фон для паузи -->
+        <Grid x:Name="PauseOverlay" Background="#80000000" Visibility="Collapsed"
+              IsHitTestVisible="False">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Opacity="1">
+                <TextBlock Text="Гра на паузі" FontSize="36" FontWeight="Bold"
+                           HorizontalAlignment="Center" Margin="0,0,0,15" Foreground="White" />
+                <Button x:Name="ResumeButton" Content="Продовжити" Click="Button_Resume" Style="{StaticResource SettingsButtonStyle}"
+                        Padding="10" Margin="0,15" Width="150"/>
+                <Button x:Name="SelectLvlButton" Content="Вибір рівня" Click="Button_Select" Style="{StaticResource SettingsButtonStyle}"
+                        Padding="10" Margin="0,15" Width="150"/>
+                <Button x:Name="MainButton" Content="Головне меню" Click="Button_MainMenu" Style="{StaticResource SettingsButtonStyle}"
+                        Padding="10" Width="150"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

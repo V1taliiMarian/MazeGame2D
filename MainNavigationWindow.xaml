@@ -1,0 +1,14 @@
+﻿<NavigationWindow x:Class="LabyrinthGame.MainNavigationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Лабіринт"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#2A3439"
+        ShowsNavigationUI="False"
+        Icon="/ico.ico"
+        Foreground="{x:Null}">
+</NavigationWindow>
+    

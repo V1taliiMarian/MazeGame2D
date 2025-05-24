@@ -1,0 +1,66 @@
+﻿<Page x:Class="LabyrinthGame.SelectLevelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="SelectLevelPage"
+      KeyboardNavigation.TabNavigation="None"
+      Background="#2A3439">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="ОБЕРІТЬ РІВЕНЬ" FontWeight="Bold" FontSize="64" Height="90"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"  Foreground="White" Margin="0,150,0,0">
+            <TextBlock.Effect>
+                <DropShadowEffect 
+                    Color="White" 
+                    ShadowDepth="0" 
+                    BlurRadius="30" 
+                    Opacity="0.8"/>
+            </TextBlock.Effect>
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(TextBlock.Effect).(DropShadowEffect.BlurRadius)"
+                                From="15" To="35" Duration="0:0:1.5" 
+                                AutoReverse="True"/>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(TextBlock.Effect).(DropShadowEffect.Opacity)"
+                                From="0.6" To="0.9" Duration="0:0:1.5"
+                                AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+            <Button x:Name="RandomGame" Content="Випадковий" Style="{StaticResource MenuButtonStyle}" Width="350" Click="RandomLevelButton_Click"
+                    ToolTip="Запуск режиму гри з побудовою випадкового лабіринту"/>
+            <Button x:Name="TimeAttackGame" Content="Часова атака" Style="{StaticResource MenuButtonStyle}" Width="350" Click="TimeAttack_Click"
+                    ToolTip="Запуск режиму |Часова атака|"/>
+        </StackPanel>
+
+        <!-- Кнопки внизу -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,150" Height="90" Width="Auto">
+            <Button x:Name="BackButton" Content="Назад" Width="150" Margin="0,0,10,0"
+                    Click="BackButton_Click" Style="{StaticResource MenuButtonStyle}"/>
+            <Button x:Name="MainMenuButton" Content="Головне меню" Click="MainMenuButton_Click" Visibility="Collapsed"
+                    Width="250" Margin="0,0,10,0" Style="{StaticResource MenuButtonStyle}"/>
+            <Button x:Name="StatsButton" Content="📊" Style="{StaticResource SmallButtonStyle}" 
+                    Margin="0,0,10,0" Click="StatsButton_Click" ToolTip="Статистика"/>
+            <Button x:Name="InfoButton" Content="?" Style="{StaticResource SmallButtonStyle}" 
+                    Margin="0,0,0,0" Click="InfoButton_Click" ToolTip="Інформація про гру"/>
+        </StackPanel>
+
+        <Canvas Grid.Row="3">
+            <TextBlock Canvas.Right="10" Canvas.Bottom="7" 
+               Text="v1.3 © Vitalii Marian" FontSize="10" FontWeight="Light" Foreground="White"/>
+        </Canvas>
+
+    </Grid>
+</Page>

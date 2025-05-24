@@ -1,0 +1,78 @@
+﻿<Window x:Class="LabyrinthGame.ExitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Exit" Height="200" Width="350" KeyboardNavigation.TabNavigation="None"
+        Background="#91A3B0" WindowStyle="None" AllowsTransparency="True"
+        WindowStartupLocation="CenterOwner" 
+        MinWidth="350" MinHeight="200"
+        BorderBrush="#536878" BorderThickness="5">
+   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Ви впевнені, що хочете вийти з гри?"
+                   TextWrapping="Wrap" Width="250"
+                   Grid.Row="0" Grid.Column="0" 
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center" 
+                   Margin="0,31,0,0" 
+                   Grid.ColumnSpan="2"
+                   Foreground="White"
+                   FontSize="24" FontWeight="Bold">
+        </TextBlock>
+
+        <Button x:Name="ButtonNo"
+                Grid.Column="0" 
+                Grid.Row="1" 
+                Style="{StaticResource ExitButtonStyle}"
+                HorizontalAlignment="Right" 
+                Margin="0,20,20,0"
+                Content="Ні"
+                Click="Button_No"
+                BorderBrush="Green">
+        </Button>
+
+        <Button x:Name="ButtonYes"
+                Grid.Column="1" 
+                Grid.Row="1" 
+                Style="{StaticResource ExitButtonStyle}"
+                HorizontalAlignment="Left" 
+                Margin="20,20,0,0"
+                Content="Так"
+                Click="Button_Yes"
+                BorderBrush="Red">
+        </Button>
+        <Canvas>
+            <Button x:Name="SettingsClick"
+            Width="30" Canvas.Top="5" Canvas.Left="5"
+            Height="30" 
+            Click="Settings_Click" 
+            Margin="0,0,20,0" 
+            BorderBrush="{x:Null}" 
+            Foreground="{x:Null}" 
+            Background="{x:Null}">
+
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Image Stretch="Uniform" Source="/SetInExt.png"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Canvas>
+        
+    </Grid>
+</Window>
