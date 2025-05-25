@@ -24,6 +24,8 @@ namespace LabyrinthGame
             275, 300, 325, 350, 375, 400, 425, 450, 475, 500 };
 
         private const int RewardAmount = 5;
+        private const int RewardAmount10 = 10;
+        private const int RewardAmount25 = 25;
         
         private readonly List<int> _claimedRandomLevels = new List<int>();
         private readonly List<int> _claimedTimeAttacks = new List<int>();
@@ -134,7 +136,7 @@ namespace LabyrinthGame
                 _statsManager.RandomLevelsCompleted,
                 _randomLevelThresholds,
                 _claimedRandomLevels,
-                RewardAmount);
+                RewardAmount10);
 
         public bool ClaimTimeAttackReward() =>
             ClaimReward(
@@ -155,7 +157,7 @@ namespace LabyrinthGame
                 _coinManager.PurchasedWallColors.Count,
                 _skinWallThresholds,
                 _claimedWallSkins,
-                RewardAmount);
+                RewardAmount25);
 
         public bool ClaimCoinsReward() =>
             ClaimReward(
